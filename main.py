@@ -1,6 +1,6 @@
 #Modul Library
 import streamlit as st
-import numpy as numpy
+import numpy as np
 import pandas as pd
 
 
@@ -21,7 +21,7 @@ def load_dataset():
 	return dataset
 
 st.title('Sistem Pendeteksi Anemia')
-deskripsi, dataset, proses, akurasi = st.tabs(["Info", "Dataset", "Proses", "Akurasi"])
+deskripsi, dataset, modelling, implementasi = st.tabs(["Info", "Dataset", "Modelling", "Implementasi"])
 
 with deskripsi:
 	st.image("https://cdn.slidesharecdn.com/ss_thumbnails/anemia-140408050251-phpapp02-thumbnail-4.jpg?cb=1397124052", width=400)
@@ -85,10 +85,13 @@ with dataset:
 
 	* Nilai mean corpuscular hemoglobin yang lebih tinggi dari 33,2 pg dikategorikan sebagai MCH tinggi.
 
-
 	MCHC adalah singkatan dari rata-rata konsentrasi hemoglobin corpuscular. Ini adalah ukuran konsentrasi rata-rata hemoglobin di dalam satu sel darah merah.
 
+	* Pada orang dewasa yakni usia 18 tahun ke atas, hasil normal pemeriksaan MCHC berkisar antara 334-355 g/L.
+
 	MCV adalah singkatan dari mean corpuscular volume. Tes darah MCV mengukur ukuran rata-rata sel darah merah Anda.
+
+	* nilai normal MCV berkisar antara 80-100 fL.
 
 	Hasil: 0- tidak anemia, 1-anemia
 
@@ -101,20 +104,28 @@ with dataset:
 	dataset=load_dataset()
 	dataset
 
-with proses:
-	with st.form("my_form"):
-		st.write("Form Pendeteksi")
-		gender = st.selectbox(
-			'Jenis Kelamin',
-			('Pilihan','0', '1'))
-		MCH = st.number_input('MCH')
-		MCHC = st.number_input('MCHC')
-		MCV = st.number_input('MCV')
-		submitted = st.form_submit_button("Submit")
-		if submitted:
-			st.write("slider", slider_val, "checkbox", checkbox_val)
+# with proses:
+# 	with st.form("my_form"):
+# 		st.write("Form Pendeteksi")
+# 		gender = st.selectbox(
+# 			'Jenis Kelamin',
+# 			('Pilihan','0', '1'))
+# 		MCH = st.number_input('MCH')
+# 		MCHC = st.number_input('MCHC')
+# 		MCV = st.number_input('MCV')
+# 		submitted = st.form_submit_button("Submit")
+# 		diagnosa = ""
+# 		if submitted:
+# 			prediksi_anemia = model.predict([["gender", "MCH", "MCHC", "MCV"]])
+# 			# prediksi jika anemia = 1 jika tidak sama dengan 0
+# 			if prediksi_anemia[0] == 1:
+# 				diagnosa = "Terdeksi Penyakit Anemia"
+# 			else:
+# 				diagnosa = "Tidak terdeksi diagnosa"
 
-with akurasi:
+# 			st.success(diagnosa)
+
+with modelling:
 
 	def tambah_input(nama_metode): 
 		inputan=dict()
@@ -145,7 +156,7 @@ with akurasi:
 
 	
 	#fitur
-	X=dataset.iloc[:,0:4]
+	X=dataset.iloc[:,0:5]
 	#hasil
 	Y=dataset.iloc[:,5]
 
@@ -157,6 +168,41 @@ with akurasi:
 	y_pred=model.predict(X_test)
 	accuracy =accuracy_score(y_test,y_pred)
 	st.write("Accuracy  = ", accuracy)
+
+
+
+with implementasi:
+	with st.form("my_form"):
+		st.write("Form Pendeteksi")
+		gender = st.selectbox(
+			'Jenis Kelamin',
+			('Male', 'Female'))
+		Hemoglobin = st.number_input('Hemoglobin')
+		MCH = st.number_input('MCH')
+		MCHC = st.number_input('MCHC')
+		MCV = st.number_input('MCV')
+		submitted = st.form_submit_button("Submit")
+		diagnosa = ""
+
+		if gender=='Male':
+			gender=0
+		else:
+			gender=1
+
+		a = np.array([[gender,Hemoglobin, MCH, MCHC, MCV]])
+		data_inputan = pd.DataFrame(a, columns= ["gender","Hemoglobin","MCH", "MCHC", "MCV"])
+
+		if submitted:
+			prediksi_anemia = model.predict(data_inputan)
+			# prediksi jika anemia = 1 jika tidak sama dengan 0
+			if prediksi_anemia[0] == 1:
+				diagnosa = "Terdeteksi penyakit Anemia"
+			else:
+				diagnosa = "Tidak terdeksi Penyakit Anemia" 
+
+			st.success(diagnosa)
+
+		
 
 
 
