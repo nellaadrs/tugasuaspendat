@@ -16,7 +16,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 def load_dataset():
-	url = 'https://raw.githubusercontent.com/nellaadrs/datamining/gh-pages/anemia.csv'
+	url = 'https://raw.githubusercontent.com/nellaadrs/tugasuaspendat/main/anemia.csv'
 	dataset = pd.read_csv(url,  header='infer', index_col=False)
 	return dataset
 
