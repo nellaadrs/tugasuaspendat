@@ -21,6 +21,8 @@ def load_dataset():
 	return dataset
 
 st.title('Sistem Pendeteksi Anemia')
+st.write("Nella Adrisia Hartono | 200411100107")
+st.write("Penambangan Data B")
 deskripsi, dataset, modelling, implementasi = st.tabs(["Info", "Dataset", "Modelling", "Implementasi"])
 
 with deskripsi:
