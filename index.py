@@ -21,7 +21,7 @@ def load_dataset():
 	return dataset
 
 st.title('Sistem Pendeteksi Anemia')
-st.header("Dosen pengampu : Cucun Very Angkoso, S.T., MT")
+st.subheader("Dosen pengampu : Cucun Very Angkoso, S.T., MT")
 st.write("""
 R. Bella Aprilia Damayanti	200411100082
 
