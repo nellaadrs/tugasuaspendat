@@ -22,8 +22,8 @@ def load_dataset():
 
 st.title('Sistem Pendeteksi Anemia')
 st.header("Dosen pengampu : Cucun Very Angkoso, S.T., MT")
-st.subheader("""R. Bella Aprilia Damayanti	200411100082 ", 
-	     "Nella Adrisia Hartono		200411100107""")
+st.subheader("""R. Bella Aprilia Damayanti	200411100082  
+	     Nella Adrisia Hartono		200411100107""")
 #st.subheader("Nella Adrisia Hartono		200411100107 ")
 # st.subheader("Nella Adrisia Hartono		200411100107")
 # st.subheader("Machine Learning B")
