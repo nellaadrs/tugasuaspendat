@@ -21,9 +21,11 @@ def load_dataset():
 	return dataset
 
 st.title('Sistem Pendeteksi Anemia')
-st.subheader("R. Bella Aprilia Damayanti	200411100082")
-st.subheader("Nella Adrisia Hartono		200411100107")
-st.subheader("Machine Learning B")
+st.subheader("""R. Bella Aprilia Damayanti	200411100082
+	     
+	     Nella Adrisia Hartono		200411100107""")
+# st.subheader("Nella Adrisia Hartono		200411100107")
+# st.subheader("Machine Learning B")
 
 deskripsi, dataset, modelling, implementasi = st.tabs(["Info", "Dataset", "Modelling", "Implementasi"])
 
