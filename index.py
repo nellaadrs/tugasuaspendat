@@ -21,7 +21,7 @@ def load_dataset():
 	return dataset
 
 st.title('Sistem Pendeteksi Anemia')
-st.subheader("""
+st.write("""
 R. Bella Aprilia Damayanti	200411100082
 
 Nella Adrisia Hartono		200411100107
