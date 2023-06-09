@@ -23,6 +23,7 @@ def load_dataset():
 st.title('Sistem Pendeteksi Anemia')
 st.header("""
 R. Bella Aprilia Damayanti 	200411100082
+
 Nella Adrisia Hartono 		200411100107""")
 deskripsi, dataset, modelling, implementasi = st.tabs(["Info", "Dataset", "Modelling", "Implementasi"])
 
