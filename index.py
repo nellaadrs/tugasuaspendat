@@ -20,7 +20,7 @@ def load_dataset():
 	dataset = pd.read_csv(url,  header='infer', index_col=False)
 	return dataset
 
-st.title('Sistem Pendeteksi Anemia')
+st.header('Sistem Pendeteksi Anemia')
 st.write("""
 R. Bella Aprilia Damayanti	200411100082
 
