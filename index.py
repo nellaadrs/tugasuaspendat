@@ -22,9 +22,11 @@ def load_dataset():
 
 st.title('Sistem Pendeteksi Anemia')
 st.write("""
-R. Bella Aprilia Damayanti	200411100082
+Nama	: R. Bella Aprilia Damayanti	200411100082
 
-Nella Adrisia Hartono		200411100107
+	  Nella Adrisia Hartono		200411100107
+
+Kelas 	: Machine Learning B
 
 """)
 deskripsi, dataset, modelling, implementasi = st.tabs(["Info", "Dataset", "Modelling", "Implementasi"])
